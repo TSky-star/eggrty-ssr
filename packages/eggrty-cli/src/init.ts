@@ -1,11 +1,12 @@
 import ora from 'ora'
+import chalk from 'chalk'
 import { getConfig } from './config'
 import { checkRepeat } from './check'
 import { cacheMange } from './cache'
 import { updateCli } from './update'
 import { Optional } from './interface/option'
 
-const spinner = ora('应用初始化中')
+const spinner = ora(`${chalk.bgBlueBright('应用初始化中')}`)
 
 const init = async (option: Optional) => {
   // 自检更新当前脚手架是否最新
