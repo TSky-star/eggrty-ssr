@@ -17,7 +17,7 @@ export async function cacheMange (option: Optional): Promise<void> {
     shell.rm('-rf', resolveApp('./cache'))
     await downloadWithPromise('github:eggrty/egg-react-ssr#dev', resolveApp('./cache'))
   }
-  const example = resolveApp(`./cache/example/ssr-with-${language}`)
+  const example = resolveApp(`./cache/demo/ssr-with-${language}`)
   shell.cp('-rf', example, './')
   shell.mv(`./ssr-with-${language}`, `./${option.appName}`)
 }

@@ -11,9 +11,9 @@ jest.mock('../src/util/index', () => ({
   resolveApp: jest.requireActual('../src/util').resolveApp,
   getVersionEffective: jest.requireActual('../src/util').getVersionEffective,
   downloadWithPromise: jest.fn(() => {
-    shell.mkdir('-p', resolveApp(`./cache/example/ssr-with-js`))
-    shell.touch(resolveApp(`./cache/example/ssr-with-js/package.json`))
-    execSync(`echo '{"version": "1.0.0"}' > ${resolveApp(`./cache/example/ssr-with-js/package.json`)}`)
+    shell.mkdir('-p', resolveApp(`./cache/demo/ssr-with-js`))
+    shell.touch(resolveApp(`./cache/demo/ssr-with-js/package.json`))
+    execSync(`echo '{"version": "1.0.0"}' > ${resolveApp(`./cache/demo/ssr-with-js/package.json`)}`)
   })
 }))
 

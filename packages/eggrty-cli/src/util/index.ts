@@ -56,7 +56,7 @@ async function getVersionEffective (option: Optional): Promise<boolean> {
     const language = option.language === 'javascript' ? 'js' : 'ts'
     try {
       const { 'dist-tags': { latest } } = await getWithPromise(url)
-      const localVersion = require(resolveApp(`./cache/example/ssr-with-${language}/package.json`)).version.trim()
+      const localVersion = require(resolveApp(`./cache/demo/ssr-with-${language}/package.json`)).version.trim()
       // 如果版本一样就不用更新
       return latest === localVersion
     } catch (error) {

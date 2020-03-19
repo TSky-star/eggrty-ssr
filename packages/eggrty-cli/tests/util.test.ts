@@ -49,11 +49,11 @@ describe('test getVersionEffective without cache', () => {
 describe('test getVersionEffective with cache', () => {
   beforeEach(() => {
     jest.resetModules() // 清空缓存
-    shell.mkdir('-p', resolveApp('./cache/example/ssr-with-js'))
-    shell.touch(resolveApp(`./cache/example/ssr-with-js/package.json`))
+    shell.mkdir('-p', resolveApp('./cache/demo/ssr-with-js'))
+    shell.touch(resolveApp(`./cache/demo/ssr-with-js/package.json`))
   })
   test('cahe expired should return false', async () => {
-    execSync(`echo '{"version":"1.0.0"}' > ${resolveApp(`./cache/example/ssr-with-js/package.json`)}`)
+    execSync(`echo '{"version":"1.0.0"}' > ${resolveApp(`./cache/demo/ssr-with-js/package.json`)}`)
     // 缓存过期应该返回false
     const data = await getVersionEffective({
       appName: 'app',
@@ -64,7 +64,7 @@ describe('test getVersionEffective with cache', () => {
   test('cahe not expire should return true', async () => {
     // 缓存没过期应该返回true
     const { 'dist-tags': { latest } } = await getWithPromise('https://registry.npm.taobao.org/ssr-with-js')
-    execSync(`echo '{"version": "${latest}"}' > ${resolveApp(`./cache/example/ssr-with-js/package.json`)}`)
+    execSync(`echo '{"version": "${latest}"}' > ${resolveApp(`./cache/demo/ssr-with-js/package.json`)}`)
     const data = await getVersionEffective({
       appName: 'app',
       language: 'javascript'

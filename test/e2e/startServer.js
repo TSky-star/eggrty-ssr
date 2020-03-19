@@ -5,7 +5,7 @@ const { resolve } = require('path')
 const { exec, fork, spawn } = require('child_process')
 const { promisify } = require('util')
 const execWithPromise = promisify(exec)
-const baseDir = process.env.BASE_DIR = resolve(__dirname, '../../example/ssr-with-js/')
+const baseDir = process.env.BASE_DIR = resolve(__dirname, '../../demo/ssr-with-js/')
 const cwd = process.cwd()
 egg.startCluster({
   baseDir: baseDir,
@@ -13,10 +13,10 @@ egg.startCluster({
   workers: 1
 }, async () => {
   try {
-    await execWithPromise('cd ./example/ssr-with-js && npm run build:server')
+    await execWithPromise('cd ./demo/ssr-with-js && npm run build:server')
     const child = fork('./packages/eggrty-cli/src/clientRender', {
       env: Object.assign(process.env, {
-        BASE_CWD: resolve(cwd, './example/ssr-with-js')
+        BASE_CWD: resolve(cwd, './demo/ssr-with-js')
       })
     })
     child.send({
