@@ -11,7 +11,7 @@
     "react-dom": "16.8.3",
     "react-router-dom": "^5.0.0",
     "eggrty-utils": "^2.0.2",
-    "serialize-javascript": "^2.1.2"
+    "serialize-javascript": "^4.0.0"
   },
   "scripts": {
     "debug": "egg-bin debug",
